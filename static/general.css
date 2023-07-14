@@ -1,0 +1,31 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.flex-justify-content-end {
+  justify-content: flex-end;
+}
+
+.grid {
+  display: grid;
+}
+.justify-center {
+  justify-self: center;
+}
+.align-items-center {
+  align-items: center;
+}
+.padding-top {
+  padding-top: 4rem;
+}

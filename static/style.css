@@ -1,0 +1,7 @@
+.video-box {
+  background-color: black;
+}
+
+.container-fluid {
+  justify-content: flex-end !important;
+}

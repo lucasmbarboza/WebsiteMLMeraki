@@ -1,0 +1,6 @@
+streams:
+  meraki:
+    - rtsp://<rtsp_camera_stream>
+
+webrtc:
+  listen: ":8555"

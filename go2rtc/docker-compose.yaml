@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  go2rtc:
+    image: alexxit/go2rtc
+    # network_mode: host # important for WebRTC, HomeKit, UDP cameras
+    privileged: true # only for FFmpeg hardware transcoding
+    restart: unless-stopped # autorestart on fail or config change from WebUI
+    environment:
+      - TZ=Atlantic/Bermuda # timezone in logs
+    ports:
+      - 8555:8555
+      - 8081:1984
+    volumes:
+      - ".:/config" # folder for go2rtc.yaml file (edit from WebUI)

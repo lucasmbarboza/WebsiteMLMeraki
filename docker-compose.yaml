@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  go2rtc:
+    image: alexxit/go2rtc
+    # network_mode: host # important for WebRTC, HomeKit, UDP cameras
+    privileged: true # only for FFmpeg hardware transcoding
+    restart: unless-stopped # autorestart on fail or config change from WebUI
+    environment:
+      - TZ=Atlantic/Bermuda # timezone in logs
+    ports:
+      - 8555:8555
+      - 8081:1984
+    volumes:
+      - "./go2rtc:/config" # folder for go2rtc.yaml file (edit from WebUI)
+    networks:
+      - meraki
+
+  frontend:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - meraki
+
+networks:
+  meraki:
